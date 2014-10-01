@@ -38,16 +38,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func convertToRealDogYearsButtonPressed(sender: UIButton) {
-        let humanYearsNum = Double((humanYearsTextField.text as NSString).doubleValue)
+        var humanYearsNum = Double((humanYearsTextField.text as NSString).doubleValue)
         let dogYearMultiplier1 = 10.5
         let dogYearMultiplier2 = 4
         var dogYearsNum:Double
         
-        if humanYearsNum < 2 {
+        if humanYearsNum <= 2 {
             dogYearsNum = humanYearsNum * dogYearMultiplier1
         }
         else { //if humanYearsNum > 2
-            dogYearsNum = (humanYearsNum * dogYearMultiplier1) + ((humanYearsNum - 2) * Double(dogYearMultiplier2))
+            dogYearsNum = (2.0 * dogYearMultiplier1) + ((humanYearsNum - 2.0) * Double(dogYearMultiplier2))
         }
         
         //Unhide label and display answer
