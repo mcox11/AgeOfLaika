@@ -32,10 +32,28 @@ class ViewController: UIViewController {
         
         //Unhide label and display answer
         dogYearsLabel.hidden = false
-        dogYearsLabel.text = "Dog is \(dogYearsNum) Human years old."
+        dogYearsLabel.text = "Dog is \(dogYearsNum) Simple Human years old."
         humanYearsTextField.text = ""
         humanYearsTextField.resignFirstResponder()
     }
 
+    @IBAction func convertToRealDogYearsButtonPressed(sender: UIButton) {
+        let humanYearsNum = Double((humanYearsTextField.text as NSString).doubleValue)
+        let dogYearMultiplier1 = 10.5
+        let dogYearMultiplier2 = 4
+        var dogYearsNum:Double
+        
+        if humanYearsNum < 2 {
+            dogYearsNum = humanYearsNum * dogYearMultiplier1
+        }
+        else { //if humanYearsNum > 2
+            dogYearsNum = (humanYearsNum * dogYearMultiplier1) + ((humanYearsNum - 2) * Double(dogYearMultiplier2))
+        }
+        
+        //Unhide label and display answer
+        dogYearsLabel.hidden = false
+        dogYearsLabel.text = "Dog is \(dogYearsNum) Real Human years old."
+        humanYearsTextField.text = ""
+        humanYearsTextField.resignFirstResponder()
+    }
 }
-
